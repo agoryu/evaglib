@@ -1,0 +1,34 @@
+[gd_scene load_steps=7 format=3 uid="uid://cguyjiq0c7jkp"]
+
+[ext_resource type="Texture2D" uid="uid://c0pvo4woosvtp" path="res://FX/Impact/sparkle.png" id="1"]
+
+[sub_resource type="Gradient" id="4"]
+offsets = PackedFloat32Array(0.190476, 1)
+colors = PackedColorArray(0.948242, 0.662877, 0.0407448, 1, 0.885742, 0.0968781, 0.0968781, 1)
+
+[sub_resource type="GradientTexture2D" id="5"]
+gradient = SubResource("4")
+
+[sub_resource type="Curve" id="1"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.507853, 0.818182), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="2"]
+curve = SubResource("1")
+
+[sub_resource type="ParticleProcessMaterial" id="3"]
+emission_shape = 1
+emission_sphere_radius = 5.0
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.0
+scale_curve = SubResource("2")
+color_ramp = SubResource("5")
+
+[node name="Impact" type="GPUParticles2D"]
+emitting = false
+amount = 16
+texture = ExtResource("1")
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("3")

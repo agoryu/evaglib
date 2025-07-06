@@ -1,0 +1,75 @@
+[gd_scene load_steps=12 format=3 uid="uid://dhqq627g81r88"]
+
+[ext_resource type="Texture2D" uid="uid://c0od1ng1lw01n" path="res://FX/ExplosionPix/Explosion-Sheet.png" id="1_2pq70"]
+[ext_resource type="Script" path="res://FX/ExplosionPix/Explosion.gd" id="1_qnjdv"]
+[ext_resource type="AudioStream" uid="uid://bsdulkr8c5tmo" path="res://FX/ExplosionPix/explosion.wav" id="1_tviha"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iym1b"]
+atlas = ExtResource("1_2pq70")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lq8sy"]
+atlas = ExtResource("1_2pq70")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mwe7r"]
+atlas = ExtResource("1_2pq70")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gh24u"]
+atlas = ExtResource("1_2pq70")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y3avi"]
+atlas = ExtResource("1_2pq70")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j1m45"]
+atlas = ExtResource("1_2pq70")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s65fn"]
+atlas = ExtResource("1_2pq70")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7s6uf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iym1b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lq8sy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mwe7r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gh24u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y3avi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j1m45")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s65fn")
+}],
+"loop": false,
+"name": &"default",
+"speed": 20.0
+}]
+
+[node name="Explosion" type="Node2D"]
+script = ExtResource("1_qnjdv")
+
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_7s6uf")
+
+[node name="AudioExplosion" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_tviha")
+
+[connection signal="finished" from="AudioExplosion" to="." method="_on_audio_explosion_finished"]

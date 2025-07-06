@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://erflg41d371u"]
+
+[ext_resource type="Shader" uid="uid://pclow4bo6b4g" path="res://FX/HaloCircle/halo_circle.gdshader" id="1"]
+[ext_resource type="Texture2D" uid="uid://cw845lwc7umti" path="res://FX/HaloCircle/white_square.svg" id="2"]
+[ext_resource type="Script" uid="uid://cb2yvbfta5d1u" path="res://FX/HaloCircle/HaloCircle.gd" id="3"]
+
+[sub_resource type="ShaderMaterial" id="1"]
+shader = ExtResource("1")
+shader_parameter/halo_color = Color(0.137255, 0.694118, 0.862745, 1)
+shader_parameter/bounds_half_length = 150.0
+shader_parameter/halo_radius = 100.0
+
+[node name="HaloCircle" type="Sprite2D"]
+material = SubResource("1")
+scale = Vector2(3.125, 3.125)
+texture = ExtResource("2")
+script = ExtResource("3")

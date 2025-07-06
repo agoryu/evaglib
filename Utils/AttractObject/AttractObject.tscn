@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3cdgcq1gnyoa"]
+
+[ext_resource type="Script" uid="uid://djnk2mo1tunn1" path="res://Utils/AttractObject/AttractObject.gd" id="1_gw4oi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1d5ct"]
+
+[node name="AttractObject" type="Area2D"]
+script = ExtResource("1_gw4oi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_1d5ct")
